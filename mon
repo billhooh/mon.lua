@@ -19,43 +19,6 @@ game.StarterGui:SetCore(
 ------------------------------------------------------------------------------------------------------------------------------------
 
 
-
-local player = game.Players.LocalPlayer
-local screenGui = Instance.new("ScreenGui")
-screenGui.Parent = player.PlayerGui
-
-local imageLabel = Instance.new("ImageLabel")
-imageLabel.Parent = screenGui
-imageLabel.Size = UDim2.new(0, 25, 0, 25) -- Kích thước của biểu tượng (25x25)
-imageLabel.Position = UDim2.new(1, -30, 0, 10) -- Vị trí của biểu tượng ở góc trên bên phải
-imageLabel.Image = "rbxassetid://99337284191884" -- ID của biểu tượng bạn đã cung cấp
-imageLabel.BackgroundTransparency = 1 -- Đặt độ trong suốt của nền (1 là hoàn toàn trong suốt)
-
--- Tạo một biến để theo dõi trạng thái của menu
-local menuVisible = false
-
--- Tạo một Frame để làm menu
-local menuFrame = Instance.new("Frame")
-menuFrame.Parent = screenGui
-menuFrame.Size = UDim2.new(0, 300, 0, 200) -- Kích thước của menu
-menuFrame.Position = UDim2.new(0.5, -150, 0.5, -100) -- Vị trí của menu
-menuFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Màu nền của menu
-menuFrame.Visible = menuVisible -- Đặt menu không hiển thị ban đầu
-
--- Hàm để chuyển đổi trạng thái menu
-local function toggleMenu()
-    menuVisible = not menuVisible
-    menuFrame.Visible = menuVisible
-end
-
--- Kết nối sự kiện nhấp chuột với hàm toggleMenu
-imageLabel.MouseButton1Click:Connect(toggleMenu)
-
-
-
-
-
-
 function PostWebhook(Url, message)
     local request = http_request or request or HttpPost or syn.request
     local data =
@@ -2738,7 +2701,22 @@ print("alr")
 print("attack func") 
 
 print("stop tween") 
-
+local ScreenGui = Instance.new("ScreenGui")
+local TextLabel = Instance.new("TextLabel")
+local UIGradient = Instance.new("UIGradient")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+TextLabel.Parent = ScreenGui
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.BorderSizePixel = 0
+TextLabel.Position = UDim2.new(0.359138072, 0, -0.025062656, 0)
+TextLabel.Size = UDim2.new(0, 200, 0, 50)
+TextLabel.Font = Enum.Font.FredokaOne
+TextLabel.Text = "https://discord.gg/Vr3y3x6Vuv"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 19.000
 
 UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 255, 255)), ColorSequenceKeypoint.new(0.01, Color3.fromRGB(255, 0, 242)), ColorSequenceKeypoint.new(0.16, Color3.fromRGB(59, 200, 251)), ColorSequenceKeypoint.new(0.35, Color3.fromRGB(247, 0, 255)), ColorSequenceKeypoint.new(0.68, Color3.fromRGB(8, 255, 214)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(114, 187, 255))}
 UIGradient.Parent = TextLabel
